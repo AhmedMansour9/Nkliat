@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activites.Choose_Map">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:background="@color/blue"
+    android:id="@+id/rela"
+    android:layout_height="@dimen/_100sdp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_location"
+        android:layout_centerHorizontal="true"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/_20sdp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/save"
+        android:layout_alignParentEnd="true"
+        android:textColor="#fff"
+        android:id="@+id/Btn_Save"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/_20sdp"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_below="@+id/Btn_Save"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginStart="@dimen/_70sdp"
+        android:layout_marginEnd="@dimen/_70sdp"
+        android:textSize="@dimen/_12sdp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:id="@+id/E_SearchPlace"
+        android:gravity="center_vertical"
+        android:background="@drawable/bc_search"
+        android:drawableStart="@drawable/ic_search"
+        android:hint="@string/saerchh"
+        android:textColorHint="#d2d2d2"
+        android:textColor="#d2d2d2"
+        android:drawablePadding="@dimen/_10sdp"
+        android:singleLine="true"
+        android:paddingStart="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_10sdp"
+        android:textStyle="italic"
+        android:popupBackground="#fff"
+
+        />
+</RelativeLayout>
+
+
+    <fragment
+        android:id="@+id/MAP"
+        android:layout_below="@+id/rela"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+
+
+</RelativeLayout>

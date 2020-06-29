@@ -1,0 +1,129 @@
+<resources>
+    <string name="app_name">NAQLIAT</string>
+    <string name="title_activity_navigation">Navigation</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login  </string>
+    <string name="forgetpassword">Forget Password ?</string>
+    <string name="face">Login using facebook</string>
+    <string name="google">Loging using google</string>
+    <string name="name">Name</string>
+    <string name="phone">Phone</string>
+    <string name="signup">Signup</string>
+    <string name="signin">Signin</string>
+
+    <string name="emailisused">Email is Already Exist</string>
+    <string name="wrongemailorpass">Wrong Email or Password</string>
+    <string name="nointernet">No Internet Connection</string>
+    <string name="myprofile">My Profile</string>
+    <string name="language">Language</string>
+    <string name="english">English</string>
+    <string name="arabic">Arabic</string>
+    <string name="success">Congratulation, Welcome </string>
+    <string name="RETRY">RETRY</string>
+    <string name="search">Searhing For Car!</string>
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
+    <string name="requests">My Requests</string>
+    <string name="setting">Setting</string>
+    <string name="contactus">Contact Us</string>
+    <string name="logout">Logout</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="furntiure">Furniture Transfer</string>
+    <string name="trailer">Trailer</string>
+    <string name="l_trailter">Light Trailer</string>
+    <string name="pickup">Pickup</string>
+    <string name="flattruck">Flat Truck SATHA</string>
+    <string name="NEXT">NEXT</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="type_furn">Type</string>
+    <string name="furn_date">Date</string>
+    <string name="typehouse">Type of House</string>
+    <string name="no_room">Number Of Room</string>
+    <string name="floor">Floor</string>
+    <string name="lift">Lift Availablity</string>
+    <string name="nots">Notes</string>
+    <string name="address">Address</string>
+    <string name="to_store">To Store</string>
+    <string name="save">Save</string>
+    <string name="send">Send</string>
+    <string name="now">Now</string>
+    <string name="choosedate">Choose Time And Date</string>
+    <string name="or">Or</string>
+    <string name="validate_feild">Please Fill All Fields</string>
+    <string name="add_location">Add Location</string>
+    <string name="saerchh">Search</string>
+    <string name="add_address">Please Enter Address</string>
+    <string-array name="n_room">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>Number Of Room</item>
+
+
+    </string-array>
+
+
+    <string-array name="n_floor">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>Floor</item>
+
+
+    </string-array>
+
+
+    <string-array name="type_house">
+        <item>Vella</item>
+        <item>Flat</item>
+        <item>Building</item>
+        <item>Type of House</item>
+
+    </string-array>
+
+    <string-array name="elevator">
+        <item>Lift Availablity</item>
+        <item>1</item>
+        <item>2</item>
+
+    </string-array>
+
+</resources>

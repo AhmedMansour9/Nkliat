@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:elevation="@dimen/_2sdp"
+    android:layout_marginTop="@dimen/_100sdp"
+    android:clickable="true"
+    tools:context=".Fragments.Form_From">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_300sdp"
+        android:background="#fff"
+        android:elevation="@dimen/_2sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_30sdp"
+        android:layout_marginStart="@dimen/_30sdp"
+        tools:context=".Fragments.Form_From">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_40sdp"
+                android:gravity="center_vertical"
+                android:buttonTint="@color/blue"
+                android:textColor="@color/grey"
+                android:backgroundTint="#2943a4"
+                android:id="@+id/Check_Date"
+                android:text="@string/now"
+                android:layout_centerHorizontal="true"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/T_Or"
+                android:textSize="@dimen/_11sdp"
+                android:layout_below="@+id/Check_Date"
+                android:text="@string/or"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/T_ChooseDate"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:textSize="@dimen/_11sdp"
+                android:layout_marginBottom="@dimen/_30sdp"
+                android:layout_below="@+id/T_Or"
+                android:text="@string/choosedate"
+                />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.core.widget.NestedScrollView>
