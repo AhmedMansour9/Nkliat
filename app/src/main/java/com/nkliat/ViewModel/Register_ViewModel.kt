@@ -15,6 +15,7 @@ import com.nawaqes.Retrofit.ApiClient
 import com.nawaqes.Retrofit.Service
 import com.nkliat.Model.Register_Model
 import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import org.json.JSONObject
@@ -77,11 +78,11 @@ class Register_ViewModel : ViewModel() {
 
 
     private fun getDataValues(filename: File,full_name:String,email: String,Password:String,Phone:String) {
-        val full_name= RequestBody.create(MediaType.parse("multipart/form-data"),full_name)
-        val email= RequestBody.create(MediaType.parse("multipart/form-data"),email)
-        val Password= RequestBody.create(MediaType.parse("multipart/form-data"),Password)
-        val Phone= RequestBody.create(MediaType.parse("multipart/form-data"),Phone)
-        val create= RequestBody.create(MediaType.parse("multipart/form-data"),"create")
+        val full_name= RequestBody.create("multipart/form-data".toMediaTypeOrNull(),full_name)
+        val email= RequestBody.create("multipart/form-data".toMediaTypeOrNull(),email)
+        val Password= RequestBody.create("multipart/form-data".toMediaTypeOrNull(),Password)
+        val Phone= RequestBody.create("multipart/form-data".toMediaTypeOrNull(),Phone)
+        val create= RequestBody.create("multipart/form-data".toMediaTypeOrNull(),"create")
 
         var map= HashMap<String,RequestBody>()
         map.put("full_name",full_name)
@@ -91,7 +92,7 @@ class Register_ViewModel : ViewModel() {
         map.put("password_confirmation",Password)
         map.put("requestType",create)
 
-        val requestFile2 = RequestBody.create(MediaType.parse("multipart/form-data"), filename)
+        val requestFile2 = RequestBody.create("multipart/form-data".toMediaTypeOrNull(), filename)
         requestImage2 =
             MultipartBody.Part.createFormData("image", filename?.name, requestFile2)
 

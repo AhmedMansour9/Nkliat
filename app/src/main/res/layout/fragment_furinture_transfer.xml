@@ -233,6 +233,34 @@
 
 
             </com.balysv.materialripple.MaterialRippleLayout>
+            <com.balysv.materialripple.MaterialRippleLayout
+                android:id="@+id/lyt_finish"
+                style="@style/RippleStyleWhite"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/spacing_xxlarge"
+                android:layout_weight="1"
+                android:visibility="gone"
+                android:background="@color/blue">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/finish"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                        android:textColor="@android:color/white" />
+
+
+                </LinearLayout>
+
+
+            </com.balysv.materialripple.MaterialRippleLayout>
 
 
             <com.balysv.materialripple.MaterialRippleLayout

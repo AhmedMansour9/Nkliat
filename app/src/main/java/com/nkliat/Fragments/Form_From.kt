@@ -15,12 +15,15 @@ import com.nkliat.Activites.Choose_Map
 import com.nkliat.Adapter.Types_Adapter
 import com.nkliat.Model.MessageEvent
 import com.nkliat.R
+import kotlinx.android.synthetic.main.fragment_form__date.view.*
 import kotlinx.android.synthetic.main.fragment_form__from.*
 import kotlinx.android.synthetic.main.fragment_form__from.view.*
 import kotlinx.android.synthetic.main.fragment_form__from.view.T_Address
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
+import java.text.SimpleDateFormat
+import java.util.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -41,8 +44,10 @@ class Form_From : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         root= inflater.inflate(R.layout.fragment_form__from, container, false)
+        elevator="1"
         openMap()
-            root.E_NoRoom.setText(No_Rooms)
+        GetElvautor()
+        root.E_NoRoom.setText(No_Rooms)
         root.E_TypeHouse.setText(TypeHouse)
         root.E_Floor.setText(No_Floor)
          root.E_NoRoom.setText(No_Rooms)
@@ -50,6 +55,16 @@ class Form_From : Fragment() {
             root.T_Address.setText(Address)
         }
         return root
+    }
+    private fun GetElvautor() {
+        root.Check_Eluvator.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                elevator="2"
+
+            } else {
+                elevator="1"
+            }
+        }
     }
     fun openMap(){
         root.T_Address.setOnClickListener(){
@@ -67,6 +82,8 @@ class Form_From : Fragment() {
         var From_Lat:String?= String()
         var From_Lng:String?= String()
         var Address:String?= String()
+        var elevator:String?= String()
+        var Notes:String?= String()
 
 
         fun  ValidateTypeHouse():Boolean{
@@ -133,6 +150,11 @@ class Form_From : Fragment() {
             EventBus.getDefault().register(this)
         }
 
+    }
+
+    override fun onDetach() {
+        Notes=root.E_Notes.text.toString()
+        super.onDetach()
     }
 
 }

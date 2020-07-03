@@ -8,8 +8,8 @@
     android:clickable="true"
     android:layout_marginBottom="@dimen/_10sdp"
     android:layout_marginTop="@dimen/_100sdp"
-    android:layout_marginEnd="@dimen/_30sdp"
-    android:layout_marginStart="@dimen/_30sdp"
+    android:layout_marginEnd="@dimen/_15sdp"
+    android:layout_marginStart="@dimen/_15sdp"
     tools:context=".Fragments.Form_From">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -17,7 +17,7 @@
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/SwipTypes"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_300sdp">
+            android:layout_height="@dimen/_350sdp">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_Types"

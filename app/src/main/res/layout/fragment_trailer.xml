@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/_10sdp"
+        android:visibility="gone"
         android:textSize="@dimen/_14sdp"
         android:textColor="@color/blue" />
 
@@ -75,7 +76,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_mxlarge"
-                    android:text="@string/from"
+                    android:text="@string/request"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="@color/grey_90" />
 
@@ -100,7 +101,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_mxlarge"
-                    android:text="@string/to"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="@color/grey_20" />
 
@@ -130,24 +130,10 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <com.balysv.materialripple.MaterialRippleLayout
-                android:id="@+id/lyt_previous"
-                style="@style/RippleStyleWhite"
-                android:layout_width="@dimen/spacing_xxlarge"
-                android:layout_height="@dimen/spacing_xxlarge"
-                android:background="@color/colorPrimaryLight">
 
-                <ImageView
-                    android:layout_width="@dimen/spacing_smlarge"
-                    android:layout_height="@dimen/spacing_smlarge"
-                    android:layout_gravity="center"
-                    android:tint="@android:color/white"
-                    android:src="@drawable/ic_arrow_back" />
-
-            </com.balysv.materialripple.MaterialRippleLayout>
 
             <com.balysv.materialripple.MaterialRippleLayout
-                android:id="@+id/lyt_next"
+                android:id="@+id/lyt_Send"
                 style="@style/RippleStyleWhite"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/spacing_xxlarge"
@@ -164,26 +150,17 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/NEXT"
+                        android:text="@string/send"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
                         android:textColor="@android:color/white" />
 
-                    <ImageView
-                        android:layout_width="@dimen/spacing_smlarge"
-                        android:layout_height="@dimen/spacing_smlarge"
-                        android:layout_marginStart="@dimen/spacing_medium"
-                        android:rotation="180"
-                        android:tint="@android:color/white"
-                        android:src="@drawable/ic_arrow_back" />
 
                 </LinearLayout>
 
 
             </com.balysv.materialripple.MaterialRippleLayout>
-
-
             <com.balysv.materialripple.MaterialRippleLayout
-                android:id="@+id/lyt_Send"
+                android:id="@+id/lyt_finish"
                 style="@style/RippleStyleWhite"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/spacing_xxlarge"
@@ -201,7 +178,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/send"
+                        android:text="@string/finish"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
                         android:textColor="@android:color/white" />
 

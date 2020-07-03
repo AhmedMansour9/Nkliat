@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:elevation="@dimen/_2sdp"
+    android:layout_marginTop="@dimen/_100sdp"
+    android:clickable="true"
+    tools:context=".Fragments.Form_From">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_300sdp"
+        android:background="#fff"
+        android:elevation="@dimen/_2sdp"
+        android:clickable="true"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_30sdp"
+        android:layout_marginStart="@dimen/_30sdp"
+        tools:context=".Fragments.Form_From">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+           <ImageView
+               android:layout_width="@dimen/_120sdp"
+               android:layout_height="@dimen/_120sdp"
+               android:layout_centerHorizontal="true"
+               android:layout_marginTop="@dimen/_25sdp"
+               android:src="@drawable/img_success"
+               android:id="@+id/img"
+               />
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="@string/success_order"
+             android:layout_centerHorizontal="true"
+             android:textSize="@dimen/_13sdp"
+             android:layout_marginTop="@dimen/_20sdp"
+             android:textColor="#707070"
+             android:textStyle="bold"
+             android:gravity="center"
+             android:id="@+id/success"
+             android:layout_below="@+id/img"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/notify"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:textSize="@dimen/_11sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_25sdp"
+                android:textColor="#707070"
+                android:layout_below="@+id/success"/>
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.core.widget.NestedScrollView>

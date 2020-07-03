@@ -21,11 +21,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="@dimen/_90sdp"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="@dimen/_60sdp"
                     android:text="@string/search"
+                    android:gravity="center"
                     android:id="@+id/T_Title"
                     android:textColor="#ffffff"
                     android:textStyle="bold"

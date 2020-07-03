@@ -1,9 +1,12 @@
 package com.nawaqes.Retrofit
 
 import com.google.gson.GsonBuilder
+import com.nkliat.Retrofit.MyInterceptor
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.util.concurrent.TimeUnit
 
 
@@ -19,16 +22,22 @@ class ApiClient {
             val gson = GsonBuilder()
                 .setLenient()
                 .create()
+            val interceptor=HttpLoggingInterceptor();
+            interceptor.level=HttpLoggingInterceptor.Level.BODY
+            val inter=MyInterceptor()
 
-            val okHttpClient = OkHttpClient.Builder()
+            val okHttpClient = OkHttpClient().newBuilder()
                 .readTimeout(60, TimeUnit.SECONDS)
                 .connectTimeout(60, TimeUnit.SECONDS)
+                .addInterceptor(interceptor)
+                .addInterceptor(inter)
                 .build()
 
             if (retrofit == null) {
                 retrofit = Retrofit.Builder()
                     .baseUrl(BasuRl)
                     .addConverterFactory(GsonConverterFactory.create(gson))
+                    .addConverterFactory(ScalarsConverterFactory.create())
                     .client(okHttpClient)
                     .build()
             }
@@ -36,26 +45,6 @@ class ApiClient {
             return retrofit
         }
 
-        fun getPayment(): Retrofit {
-            val gson = GsonBuilder()
-                .setLenient()
-                .create()
-
-            val okHttpClient = OkHttpClient.Builder()
-                .readTimeout(60, TimeUnit.SECONDS)
-                .connectTimeout(60, TimeUnit.SECONDS)
-                .build()
-
-            if (retrofi2 == null) {
-                retrofi2 = Retrofit.Builder()
-                    .baseUrl(BASE_URL2)
-                    .addConverterFactory(GsonConverterFactory.create(gson))
-                    .client(okHttpClient)
-                    .build()
-            }
-
-            return retrofi2!!
-        }
 
     }
 }

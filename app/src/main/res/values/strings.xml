@@ -62,11 +62,23 @@
     <string name="send">Send</string>
     <string name="now">Now</string>
     <string name="choosedate">Choose Time And Date</string>
+    <string name="date_time"> Time &amp; Date</string>
     <string name="or">Or</string>
     <string name="validate_feild">Please Fill All Fields</string>
     <string name="add_location">Add Location</string>
     <string name="saerchh">Search</string>
     <string name="add_address">Please Enter Address</string>
+    <string name="validateinput">Please Fill Input</string>
+    <string name="validate_oneitem">Please Select one item at least</string>
+    <string name="validate_date">Please Select Date</string>
+    <string name="success_order">Congratulation, Your Order is success</string>
+    <string name="notify">You Will have notification and phonecall \n when some one accept</string>
+    <string name="finish">Finish</string>
+    <string name="request">Request</string>
+    <string name="address_from">Address From</string>
+    <string name="address_to">Address To</string>
+    <string name="descrption">Descrption Of Work</string>
+    <string name="cartype">Car Type</string>
     <string-array name="n_room">
         <item>1</item>
         <item>2</item>

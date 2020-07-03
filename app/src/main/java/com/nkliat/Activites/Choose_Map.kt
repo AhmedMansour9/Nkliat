@@ -94,7 +94,24 @@ GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener 
                     CustomToast.toastIconError(resources.getString(R.string.add_address),this)
                 }
             }
-
+            if(type.equals("from_trailer")){
+                        if(!address.isNullOrEmpty()){
+                            EventBus.getDefault().postSticky(MessageEvent("from_trailer",lat.toString(),
+                                lng.toString(),"","",address!!))
+                            finish()
+                        }else {
+                            CustomToast.toastIconError(resources.getString(R.string.add_address),this)
+                        }
+                    }
+            if(type.equals("to_trailer")){
+                if(!address.isNullOrEmpty()){
+                    EventBus.getDefault().postSticky(MessageEvent("to_trailer","",
+                        "",lat.toString(),lng.toString(),address!!))
+                    finish()
+                }else {
+                    CustomToast.toastIconError(resources.getString(R.string.add_address),this)
+                }
+            }
         }
 
     }

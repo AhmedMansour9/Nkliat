@@ -30,12 +30,12 @@
                 android:paddingStart="@dimen/_5sdp"
                 android:drawablePadding="@dimen/_5sdp"
                 android:paddingEnd="@dimen/_5sdp"
+                android:text="@string/address_from"
                 android:maxLines="1"
                 android:ellipsize="end"
-                android:text="@string/address"
                 android:gravity="center_vertical"
                 android:background="@android:color/transparent"
-                android:id="@+id/T_Address"
+                android:id="@+id/T_AddressFrom"
                 android:textColor="#828282"
                 android:drawableEnd="@drawable/ic_map"
                 />
@@ -43,115 +43,118 @@
                 android:layout_width="match_parent"
                 android:background="#f0f0f0"
                 android:id="@+id/view1"
-                android:layout_below="@+id/T_Address"
+                android:layout_below="@+id/T_AddressFrom"
                 android:layout_height="@dimen/_1sdp"/>
 
-            <EditText
-                android:id="@+id/E_TypeHouse"
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_40sdp"
-                android:layout_below="@+id/view1"
+                android:drawableStart="@drawable/ic_address"
                 android:paddingStart="@dimen/_5sdp"
+                android:drawablePadding="@dimen/_5sdp"
                 android:paddingEnd="@dimen/_5sdp"
-                android:inputType="text"
-                android:textSize="@dimen/_12sdp"
+                android:text="@string/address_to"
+                android:layout_below="@+id/view1"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
                 android:background="@android:color/transparent"
-                android:hint="@string/typehouse"
-                android:textColor="@color/grey"
-                android:textColorHint="@color/grey"
+                android:id="@+id/T_AddressTo"
+                android:textColor="#828282"
+                android:drawableEnd="@drawable/ic_map"
                 />
             <View
                 android:layout_width="match_parent"
                 android:background="#f0f0f0"
                 android:id="@+id/view2"
-                android:layout_below="@+id/E_TypeHouse"
+                android:layout_below="@+id/T_AddressTo"
                 android:layout_height="@dimen/_1sdp"/>
 
-            <EditText
-                android:id="@+id/E_NoRoom"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_40sdp"
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_below="@+id/view2"
-                android:paddingStart="@dimen/_5sdp"
-                android:paddingEnd="@dimen/_5sdp"
-                android:inputType="number"
-                android:textSize="@dimen/_12sdp"
-                android:background="@android:color/transparent"
-                android:hint="@string/no_room"
+                android:buttonTint="@color/blue"
                 android:textColor="@color/grey"
-                android:textColorHint="@color/grey"
+                android:backgroundTint="#2943a4"
+                android:id="@+id/Check_Date"
+                android:text="@string/now"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/T_Or"
+                android:textSize="@dimen/_11sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_below="@+id/view2"
+                android:text="@string/or"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:id="@+id/T_ChooseDate"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_below="@+id/view2"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:textSize="@dimen/_11sdp"
+                android:text="@string/date_time"
                 />
             <View
                 android:layout_width="match_parent"
                 android:background="#f0f0f0"
                 android:id="@+id/view3"
-                android:layout_below="@+id/E_NoRoom"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_below="@+id/T_ChooseDate"
                 android:layout_height="@dimen/_1sdp"/>
             <EditText
-                android:id="@+id/E_Floor"
+                android:id="@+id/E_CarType"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_40sdp"
                 android:layout_below="@+id/view3"
-                android:inputType="number"
                 android:paddingStart="@dimen/_5sdp"
                 android:paddingEnd="@dimen/_5sdp"
+                android:visibility="gone"
                 android:textSize="@dimen/_12sdp"
                 android:background="@android:color/transparent"
-                android:hint="@string/floor"
+                android:hint="@string/cartype"
                 android:textColor="@color/grey"
                 android:textColorHint="@color/grey"
                 />
             <View
                 android:layout_width="match_parent"
                 android:background="#f0f0f0"
-                android:id="@+id/view4"
-                android:layout_below="@+id/E_Floor"
-                android:layout_height="@dimen/_1sdp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:gravity="center_vertical"
-                android:layout_marginStart="@dimen/_5sdp"
-                android:id="@+id/T_lift"
-                android:textSize="@dimen/_11sdp"
-                android:layout_below="@+id/view4"
-                android:text="@string/lift"
-                />
-
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_12sdp"
-                android:gravity="center_vertical"
-                android:buttonTint="@color/blue"
-                android:backgroundTint="#2943a4"
-                android:id="@+id/Check_lift"
-                android:layout_toEndOf="@+id/T_lift"
-                android:layout_below="@+id/view4"
-                />
-
-            <View
-                android:layout_width="match_parent"
-                android:background="#f0f0f0"
                 android:id="@+id/view5"
-                android:layout_below="@+id/T_lift"
+                android:visibility="gone"
+                android:layout_below="@+id/E_CarType"
                 android:layout_height="@dimen/_1sdp"/>
-
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_80sdp"
-                android:hint="@string/nots"
+                android:hint="@string/descrption"
                 android:background="@android:color/transparent"
                 android:gravity="top"
                 android:textColor="#959595"
                 android:textColorHint="#959595"
                 android:paddingStart="@dimen/_5sdp"
                 android:paddingTop="@dimen/_5sdp"
-                android:id="@+id/E_Notes"
+                android:id="@+id/E_Descrption"
                 android:textSize="@dimen/_12sdp"
                 android:layout_below="@+id/view5" />
+            <View
+                android:layout_width="match_parent"
+                android:background="#f0f0f0"
+                android:id="@+id/view4"
+                android:layout_below="@+id/E_Descrption"
+                android:layout_height="@dimen/_1sdp"/>
 
         </RelativeLayout>
 

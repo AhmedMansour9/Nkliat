@@ -1,6 +1,7 @@
 package com.nkliat.Fragments
 
 import android.app.Activity
+import android.content.SharedPreferences
 import android.graphics.PorterDuff
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,16 +11,28 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.preference.PreferenceManager
+import androidx.recyclerview.widget.GridLayoutManager
 import com.nkliat.Activites.Navigation
+import com.nkliat.Adapter.FurntireParamters_Adapter
+import com.nkliat.Loading
+import com.nkliat.Model.CreateOrder_Response
+import com.nkliat.Model.FurntiuretransferRequest_Model
+import com.nkliat.Model.Paramters_Response
 import com.nkliat.R
+import com.nkliat.ViewModel.Paramters_ViewModel
+import com.nkliat.ViewModel.RequestFurntiure_ViewModel
+import com.tayser.utils.ChangeLanguage
 import com.tayser.utils.CustomToast
+import kotlinx.android.synthetic.main.fragment_form__furntiure_type.view.*
 import kotlinx.android.synthetic.main.fragment_furinture_transfer.view.*
 
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
-private  var Tag:String = ""
 
 /**
  * A simple [Fragment] subclass.
@@ -28,8 +41,9 @@ private  var Tag:String = ""
  */
 class FurintureTransfer : Fragment() {
     private var idx_state = 0
-
        var array_state= arrayOf<String>()
+    private lateinit var DataSaver: SharedPreferences
+    private  var Tags:String = ""
 
 
     lateinit var root:View
@@ -39,6 +53,7 @@ class FurintureTransfer : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         root= inflater.inflate(R.layout.fragment_furinture_transfer, container, false)
+        DataSaver = PreferenceManager.getDefaultSharedPreferences(requireContext().applicationContext)
         init()
         Tag="from"
         displayFragment(resources.getString(R.string.from))
@@ -46,7 +61,59 @@ class FurintureTransfer : Fragment() {
 
         return root
     }
+    fun CreatOrder(){
+        var Furntiure= FurntiuretransferRequest_Model(
+         "furniture",
+         Form_Date.Datee,
+         Form_FurntiureType.IdList,
+         Form_From.TypeHouse,
+         Form_From.No_Rooms,
+         Form_From.No_Floor,
+         Form_From.elevator,
+         Form_From.Notes,
+         Form_From.From_Lat,
+         Form_From.From_Lng,
+         Form_To.From_Lat,
+            "create",
+            Form_To.From_Lng,
+//          Form_To.TypeHouse,
+//          Form_To.No_Rooms,
+//          Form_To.No_Floor,
+//          "1",
+            null
+            )
 
+        Loading.Show(requireContext())
+        var Sizes: RequestFurntiure_ViewModel =  ViewModelProvider.NewInstanceFactory().create(
+            RequestFurntiure_ViewModel::class.java)
+        requireContext().applicationContext?.let {
+            Sizes.getData(Furntiure, DataSaver.getString("token", null)!!, it)
+                .observe(viewLifecycleOwner, Observer<CreateOrder_Response> { loginmodel ->
+                Loading.Disable()
+                    if(loginmodel.message.equals("Added successfully")){
+
+
+                    root.image_from.clearColorFilter()
+                    root.image_to.clearColorFilter()
+                    root.image_furntiretype.clearColorFilter()
+                    root.image_confirm.clearColorFilter()
+                    root.lyt_finish.visibility=View.VISIBLE
+                    root.lyt_Send.visibility=View.GONE
+                    root.lyt_next.visibility =View.GONE
+                    root.lyt_previous.visibility =View.GONE
+                    val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
+                    val fragmentTransaction =
+                        fragmentManager.beginTransaction()
+                    var fragment: Fragment? = null
+                    fragment = SuccessOrder()
+                    Tag="success"
+                    fragmentTransaction.replace(R.id.frame_content, fragment,Tag)
+                    fragmentTransaction.commit()
+                    }
+                })
+        }
+
+    }
     private fun init() {
         Navigation.T_Title.text=resources.getString(R.string.furntiure)
         array_state=  arrayOf(resources.getString(R.string.from),resources.getString(R.string.to),
@@ -70,6 +137,7 @@ class FurintureTransfer : Fragment() {
             root.lyt_next.visibility =View.VISIBLE
             ValidateForm_From()
             ValidateForm_To()
+            ValidateForm_TypeFurntiure()
 
         }
        root.lyt_previous.setOnClickListener(){
@@ -81,6 +149,11 @@ class FurintureTransfer : Fragment() {
 
        }
 
+        root.lyt_Send.setOnClickListener {
+           ValidateForm_Date()
+
+
+        }
 
     }
 
@@ -206,7 +279,6 @@ class FurintureTransfer : Fragment() {
         if (Fragment != null && Fragment.isVisible()) {
             if(!Form_From.ValidateTypeHouse() or !Form_From.ValidateNo_Floor() or !Form_From.ValidateNo_Rooms()
                 or !Form_From.ValidateLat() or !Form_From.ValidateLng()){
-
                 CustomToast.toastIconError(resources.getString(R.string.validate_feild),
                     context as Activity
                 )
@@ -228,6 +300,37 @@ class FurintureTransfer : Fragment() {
                 )
             }else {
                 MoveToNextSteep()
+            }
+        }
+    }
+    fun ValidateForm_TypeFurntiure(){
+        val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
+        val Fragment  =
+            fragmentManager.findFragmentByTag("type")
+        if (Fragment != null && Fragment.isVisible()) {
+            if(!Form_FurntiureType.ValidateList() ){
+
+                CustomToast.toastIconError(resources.getString(R.string.validate_oneitem),
+                    context as Activity
+                )
+            }else {
+                MoveToNextSteep()
+            }
+        }
+    }
+
+    fun ValidateForm_Date(){
+        val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
+        val Fragment  =
+            fragmentManager.findFragmentByTag("date")
+        if (Fragment != null && Fragment.isVisible()) {
+            if(!Form_Date.ValidateNo_Date() ){
+
+                CustomToast.toastIconError(resources.getString(R.string.validate_date),
+                    context as Activity
+                )
+            }else {
+               CreatOrder()
             }
         }
     }
